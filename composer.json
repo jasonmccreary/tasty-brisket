@@ -1,0 +1,7 @@
+{
+    "name": "jasonmccreary/tasty-brisket",
+    "description": "An example repo for my LonghornPHP talk.",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
