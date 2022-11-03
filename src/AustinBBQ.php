@@ -1,9 +1,7 @@
 <?php
 
 namespace JMac;
-
-class AustinBBQ
-{
+class AustinBBQ {
     public function isGood()
     {
         return true;
