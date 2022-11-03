@@ -11,6 +11,6 @@ class MySQLTest extends TestCase
     {
         $subject = new MySQLConnector();
 
-        $this->assertSame(['root'], $subject->users());
+        $this->assertSame([['root']], $subject->users());
     }
 }
