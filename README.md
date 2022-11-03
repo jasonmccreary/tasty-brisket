@@ -1,2 +1,2 @@
-# tasty-brisket
-An example repo for my LonghornPHP Talk.
+# Tasty Brisket 😋🍖
+An example repo for my LonghornPHP talk.
