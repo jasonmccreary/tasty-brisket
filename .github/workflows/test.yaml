@@ -1,0 +1,19 @@
+name: Test
+run-name: ${{ github.actor }} is running the tests
+on: [ push ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.0', '8.1']
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+      - name: Install composer dependencies
+        run: composer install --no-ansi --no-progress --no-interaction --prefer-dist
+      - name: Run test suite
+        run: vendor/bin/phpunit
