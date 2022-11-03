@@ -6,13 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [8.0, 8.1]
+        php: ['8.0', '8.1']
     steps:
       - uses: actions/checkout@v3
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          tools: laravel/pint, overtrue/phplint:${{ matrix.php }}
+          tools: laravel/pint, overtrue/phplint:${{ matrix.php }}.x-dev
       - run: phplint --exclude=*.log .
       - run: pint --test
