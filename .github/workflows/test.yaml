@@ -7,6 +7,15 @@ jobs:
     strategy:
       matrix:
         php: ['8.0', '8.1']
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: test
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v3
       - name: Setup PHP
@@ -16,4 +25,10 @@ jobs:
       - name: Install composer dependencies
         run: composer install --no-ansi --no-progress --no-interaction --prefer-dist
       - name: Run test suite
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+          DB_NAME: test
+          DB_USER: root
+          DB_PASSWORD: null
         run: vendor/bin/phpunit
