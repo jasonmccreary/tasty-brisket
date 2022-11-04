@@ -14,7 +14,7 @@ class MySQLConnector
             getenv('DB_PORT')
         );
 
-        $result = $mysqli->query('SELECT user FROM mysql.user');
+        $result = $mysqli->query('SELECT user FROM mysql.user WHERE host = \'%\'');
 
         return $result->fetch_all();
     }
