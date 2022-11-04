@@ -4,14 +4,17 @@ on: [ push ]
 jobs:
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [8.0, 8.1]
     steps:
       - uses: actions/checkout@v3
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: ${{ matrix.php }}
           tools: laravel/pint
-      - uses: overtrue/phplint@8.1
+      - uses: overtrue/phplint@${{ matrix.php }}
         with:
           path: .
           options: --exclude=*.log
