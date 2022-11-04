@@ -1,5 +1,5 @@
 name: Lint
-run-name: ${{ github.actor }} is checking for link
+run-name: ${{ github.actor }} is checking for lint
 on: [ push ]
 jobs:
   lint:

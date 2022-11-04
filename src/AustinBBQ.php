@@ -6,6 +6,6 @@ class AustinBBQ
 {
     public function isGood()
     {
-        return true;
+        return true
     }
 }
