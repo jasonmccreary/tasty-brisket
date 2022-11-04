@@ -13,9 +13,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          tools: laravel/pint
-      - uses: overtrue/phplint@${{ matrix.php }}
-        with:
-          path: .
-          options: --exclude=*.log
+          tools: laravel/pint, overtrue/phplint:${{ matrix.php }}
+      - run: phplint --exclude=*.log .
       - run: pint --test
