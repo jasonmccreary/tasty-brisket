@@ -1,0 +1,16 @@
+name: Lint
+run-name: ${{ github.actor }} is checking for lint
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+      - uses: overtrue/phplint@8.1
+        with:
+          path: .
+          options: --exclude=*.log
