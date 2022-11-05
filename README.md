@@ -1,5 +1,5 @@
 # Tasty Brisket 😋🍖
-An example repo for my LonghornPHP talk.
+Examples of using GitHub Actions for PHP projects. Live demo given at my LonghornPHP '21 talk.
 
 ## Branches
 Multiple branches were used during the repo. Here is a quick mapping:
